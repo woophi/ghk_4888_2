@@ -39,7 +39,7 @@ export const App = () => {
   return (
     <>
       <div className={appSt.container}>
-        <img src={alfaOnly} width={158} height={33} className={appSt.img} />
+        <img src={alfaOnly} width={158} height={38} className={appSt.img} />
         <Typography.Text style={{ marginBottom: '1rem' }} view="primary-medium">
           Перейдите на новый уровень
         </Typography.Text>
@@ -63,7 +63,15 @@ export const App = () => {
         </div>
 
         <Typography.Text view="primary-medium">
-          <b>Сохраните 20%</b> с подпиской на год
+          {selected === 'На 1 месяц' ? (
+            <>
+              <b>Сохраните 20%</b> с подпиской на год
+            </>
+          ) : (
+            <>
+              <b>Сохраните 20%</b> с подпиской при оплате за год
+            </>
+          )}
         </Typography.Text>
 
         <div className={appSt.box}>
@@ -74,10 +82,10 @@ export const App = () => {
             <PureCell.Content>
               <PureCell.Main>
                 <Typography.Text view="primary-medium" tag="p" defaultMargins={false}>
-                  12 визитов в бизнес-залы и рестораны в год
+                  24 визита в бизнес-залы и рестораны в год
                 </Typography.Text>
                 <Typography.Text view="primary-small" color="secondary">
-                  Не чаще 2 раз в месяц
+                  Не чаще 8 раз в месяц
                 </Typography.Text>
               </PureCell.Main>
             </PureCell.Content>
@@ -89,10 +97,10 @@ export const App = () => {
             <PureCell.Content>
               <PureCell.Main>
                 <Typography.Text view="primary-medium" tag="p" defaultMargins={false}>
-                  2 поездки
+                  12 поездок на такси в год
                 </Typography.Text>
-                <Typography.Text view="primary-medium" tag="p" defaultMargins={false}>
-                  на такси в год
+                <Typography.Text view="primary-small" color="secondary">
+                  Не чаще 2 раз в месяц
                 </Typography.Text>
               </PureCell.Main>
             </PureCell.Content>
@@ -122,10 +130,10 @@ export const App = () => {
           hint="Подключить"
         >
           {selected === 'На 1 месяц' ? (
-            '5 000 ₽ в месяц'
+            '10 000 ₽ в месяц'
           ) : (
             <>
-              <s>60 000 ₽</s> <span style={{ color: '#FFD57B' }}>48 000 ₽ на год</span>
+              <s>120 000 ₽</s> <span style={{ color: '#FFD57B' }}>96 000 ₽ на год</span>
             </>
           )}
         </ButtonMobile>
@@ -138,7 +146,7 @@ export const App = () => {
         }}
         contentClassName={appSt.btmContent}
         actionButton={
-          <ButtonMobile block view="primary" onClick={() => setShowBs(false)}>
+          <ButtonMobile shape="rounded" block view="primary" onClick={() => setShowBs(false)}>
             Понятно
           </ButtonMobile>
         }
